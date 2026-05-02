@@ -15,7 +15,7 @@ app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 // Allowed Origins
 const allowedOrigins = [
     "http://localhost:5173",
-    "https://anas-portfolio-inky.vercel.app",
+    "https://anas-portfolio-zeta-peach.vercel.app",
 ].filter(Boolean);
 
 // CORS setup
