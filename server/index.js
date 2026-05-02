@@ -4,7 +4,6 @@ require("./config/dbConnect");
 const cors = require("cors");
 const path = require("path");
 const contactRoutes = require("./routes/contactRoutes");
-const blogRoutes = require("./routes/blogRoutes");
 const authRoutes = require("./routes/authRoutes");
 
 const app = express();
@@ -13,17 +12,16 @@ const app = express();
 app.use(express.json());
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
-// ✅ Allowed Origins (Dev + Prod)
+// Allowed Origins
 const allowedOrigins = [
     "http://localhost:5173",
+    process.env.FRONTEND_URL,
+].filter(Boolean);
 
-];
-
-// ✅ CORS setup
+// CORS setup
 app.use(
     cors({
         origin: function (origin, callback) {
-            // Allow requests with no origin (like Postman, curl)
             if (!origin || allowedOrigins.includes(origin)) {
                 callback(null, true);
             } else {
@@ -36,15 +34,18 @@ app.use(
 
 // Routes
 app.use("/api/contacts", contactRoutes);
-app.use("/api/blogs", blogRoutes);
 app.use("/api/auth", authRoutes);
 
 app.get("/", (req, res) => {
   res.send("Server is running");
 });
 
-// Server listener
-const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => {
-    console.log(`🚀 Server running on port ${PORT}`);
-});
+// Only start listening in local development
+if (process.env.NODE_ENV !== "production" && !process.env.VERCEL) {
+    const PORT = process.env.PORT || 5000;
+    app.listen(PORT, () => {
+        console.log(`Server running on port ${PORT}`);
+    });
+}
+
+module.exports = app;

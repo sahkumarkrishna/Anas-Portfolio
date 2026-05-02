@@ -2,208 +2,113 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Dark Mode (Default) */
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-  @apply bg-black text-white;
-}
-
-/* Light Mode */
-html.light body {
-  @apply bg-gradient-to-br from-gray-50 via-white to-gray-100 text-black;
-}
-
-html.light .bg-black {
-  @apply bg-gradient-to-br from-white to-gray-50;
-}
-
-html.light .bg-gray-900 {
-  @apply bg-gray-50;
-}
-
-html.light .bg-\[\#1e1e1e\] {
-  @apply bg-white;
-}
-
-html.light .bg-\[\#2a2a2a\] {
-  @apply bg-gray-50;
-}
-
-html.light .bg-\[\#111\]\/50,
-html.light .bg-\[\#111\]\/70 {
-  @apply bg-white/95;
-}
-
-html.light .bg-black\/40,
-html.light .bg-black\/30 {
-  @apply bg-white/90;
-}
-
-html.light .text-white {
-  @apply text-gray-900;
-}
-
-html.light .text-gray-300 {
-  @apply text-gray-700;
-}
-
-html.light .text-gray-400 {
-  @apply text-gray-600;
-}
-
-html.light .bg-clip-text {
-  color: black !important;
-}
-
-html.light h2,
-html.light h3,
-html.light h4 {
-  color: #1f2937 !important;
-}
-
-html.light .text-yellow-400 {
-  color: #d97706 !important;
-}
-
-html.light .from-\[\#1e1e1e\] {
-  @apply from-white;
-}
-
-html.light .to-\[\#2a2a2a\] {
-  @apply to-gray-50;
-}
-
-html.light .from-\[\#111\]\/50,
-html.light .from-\[\#111\]\/70 {
-  @apply from-white;
-}
-
-html.light .to-\[\#1a1a1a\]\/50,
-html.light .to-\[\#1a1a1a\]\/70 {
-  @apply to-gray-50;
-}
-
-html.light .from-\[\#fff\]\/100 {
-  @apply from-white;
-}
-
-html.light .to-\[\#2a2a2a\]\/50 {
-  @apply to-gray-100;
-}
-
-html.light .bg-box-gradient {
-  background-image: linear-gradient(to bottom right, rgba(255, 255, 255, 1), rgba(229, 231, 235, 1)) !important;
-}
-
-html.light .from-black {
-  @apply from-gray-50;
-}
-
-html.light .via-gray-900 {
-  @apply via-white;
-}
-
-html.light .to-black {
-  @apply to-gray-100;
-}
-
-body{
+  @apply bg-black text-white dark:bg-black dark:text-white;
   font-family: "Nunito", serif;
   transition: background-color 0.3s, color 0.3s;
 }
 
-/* Rich Text Editor Dark Theme */
-.rich-text-editor-dark .mantine-RichTextEditor-root {
-  background: linear-gradient(135deg, rgba(17, 17, 17, 0.6), rgba(30, 30, 30, 0.6));
-  border: 1px solid rgba(250, 204, 21, 0.2);
-  border-radius: 16px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+html:not(.dark) body {
+  background: linear-gradient(to bottom right, #f9fafb, #ffffff, #f3f4f6);
+  color: #111827;
 }
 
-.rich-text-editor-dark .mantine-RichTextEditor-toolbar {
-  background: linear-gradient(135deg, rgba(30, 30, 30, 0.8), rgba(17, 17, 17, 0.8));
-  border-bottom: 1px solid rgba(250, 204, 21, 0.2);
-  padding: 12px;
-  flex-wrap: wrap;
-  gap: 6px;
-  border-radius: 16px 16px 0 0;
+html:not(.dark) .text-white {
+  color: #111827 !important;
 }
 
-.rich-text-editor-dark .mantine-RichTextEditor-content {
-  background: rgba(17, 17, 17, 0.4);
-  color: white;
-  border-radius: 0 0 16px 16px;
+html:not(.dark) .text-gray-300 {
+  color: #4b5563 !important;
 }
 
-.rich-text-editor-dark .ProseMirror {
-  color: white;
-  min-height: 300px;
-  padding: 20px;
+html:not(.dark) .text-gray-400 {
+  color: #6b7280 !important;
 }
 
-.rich-text-editor-dark .ProseMirror img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 12px;
-  margin: 16px 0;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+html:not(.dark) .text-yellow-400 {
+  color: #d97706 !important;
 }
 
-.rich-text-editor-dark .mantine-RichTextEditor-control {
-  color: rgba(250, 204, 21, 0.7);
-  border-color: transparent;
-  min-width: 36px;
-  min-height: 36px;
-  padding: 8px;
-  border-radius: 8px;
-  transition: all 0.3s ease;
-  background: rgba(0, 0, 0, 0.2);
+html:not(.dark) .text-yellow-500 {
+  color: #d97706 !important;
 }
 
-.rich-text-editor-dark .mantine-RichTextEditor-control:hover {
-  background: linear-gradient(135deg, rgba(250, 204, 21, 0.3), rgba(251, 191, 36, 0.3));
-  color: #facc15;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(250, 204, 21, 0.3);
-  border: 1px solid rgba(250, 204, 21, 0.4);
+html:not(.dark) h1,
+html:not(.dark) h2,
+html:not(.dark) h3,
+html:not(.dark) h4,
+html:not(.dark) h5,
+html:not(.dark) h6 {
+  color: #111827 !important;
 }
 
-.rich-text-editor-dark .mantine-RichTextEditor-control[data-active] {
-  background: linear-gradient(135deg, rgba(250, 204, 21, 0.4), rgba(251, 191, 36, 0.4));
-  color: #facc15;
-  border: 1px solid rgba(250, 204, 21, 0.6);
-  box-shadow: 0 0 16px rgba(250, 204, 21, 0.4);
+html:not(.dark) .bg-clip-text {
+  color: #111827 !important;
 }
 
-.rich-text-editor-dark .mantine-RichTextEditor-controlsGroup {
-  gap: 4px;
-  padding: 6px;
-  background: linear-gradient(135deg, rgba(0, 0, 0, 0.3), rgba(30, 30, 30, 0.3));
-  border-radius: 10px;
-  border: 1px solid rgba(250, 204, 21, 0.1);
+html:not(.dark) input,
+html:not(.dark) textarea,
+html:not(.dark) select {
+  color: #111827 !important;
 }
 
-@media (max-width: 768px) {
-  .rich-text-editor-dark .mantine-RichTextEditor-toolbar {
-    padding: 8px;
-    gap: 4px;
-  }
-  
-  .rich-text-editor-dark .mantine-RichTextEditor-control {
-    min-width: 32px;
-    min-height: 32px;
-    padding: 6px;
-  }
-  
-  .rich-text-editor-dark .ProseMirror {
-    padding: 16px;
-    min-height: 250px;
-  }
+html:not(.dark) input::placeholder,
+html:not(.dark) textarea::placeholder {
+  color: #9ca3af !important;
 }
 
-/* Blog content images full width */
-.blog-content img {
-  width: 100%;
-  height: auto;
-  border-radius: 12px;
-  margin: 16px 0;
+html:not(.dark) .dark\:text-white {
+  color: #111827 !important;
+}
+
+html:not(.dark) .dark\:text-gray-300 {
+  color: #4b5563 !important;
+}
+
+html:not(.dark) .dark\:text-gray-400 {
+  color: #6b7280 !important;
+}
+
+html:not(.dark) .dark\:text-yellow-400 {
+  color: #d97706 !important;
+}
+
+html:not(.dark) .dark\:bg-\[\#1e1e1e\] {
+  background-color: #ffffff !important;
+}
+
+html:not(.dark) .dark\:bg-\[\#111\]\/50 {
+  background-color: #f3f4f6 !important;
+}
+
+html:not(.dark) .dark\:bg-\[\#111\]\/70 {
+  background-color: #f9fafb !important;
+}
+
+html:not(.dark) .dark\:bg-\[\#1a1a1a\]\/50 {
+  background-color: #ffffff !important;
+}
+
+html:not(.dark) .dark\:bg-\[\#2a2a2a\]\/70 {
+  background-color: #f3f4f6 !important;
+}
+
+html:not(.dark) .dark\:border-gray-700\/50 {
+  border-color: #e5e7eb !important;
+}
+
+html:not(.dark) .dark\:border-gray-700\/30 {
+  border-color: #e5e7eb !important;
+}
+
+html:not(.dark) .dark\:border-gray-200 {
+  border-color: #e5e7eb !important;
+}
+
+html:not(.dark) .dark\:bg-gray-700\/50 {
+  background-color: #e5e7eb !important;
 }
